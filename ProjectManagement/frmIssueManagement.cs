@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using MySql.Data.MySqlClient;
 
 namespace ProjectManagement
@@ -84,7 +85,14 @@ namespace ProjectManagement
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            addIssue(txt1.Text, txt2.Text, cbbProjectName.SelectedValue.ToString());
+            if (txt1.Text == string.Empty || txt2.Text == string.Empty)
+            {
+                MessageBox.Show("You need to insert all the values!");
+
+            }
+            else
+                addIssue(txt1.Text, txt2.Text, cbbProjectName.SelectedValue.ToString());
+            
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = GetDataTableLayout1();
         }
@@ -99,7 +107,21 @@ namespace ProjectManagement
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            editIssue(dataGridView1.CurrentRow.Cells[0].Value.ToString(),txt1.Text, txt2.Text, cbbProjectName.SelectedValue.ToString());
+            if (txt1.Text == string.Empty || txt2.Text == string.Empty)
+            {
+                MessageBox.Show("All fields must be filled!");
+            }
+            else
+            {
+                if (dataGridView1.CurrentRow.Cells[1].Value.ToString() == txt1.Text && dataGridView1.CurrentRow.Cells[2].ToString() == txt2.Text &&
+                dataGridView1.CurrentRow.Cells[3].Value.ToString() == cbbProjectName.Text)
+                {
+                    MessageBox.Show("The value changes need to be different from the previous values!");
+                }
+                else
+                    editIssue(dataGridView1.CurrentRow.Cells[0].Value.ToString(), txt1.Text, txt2.Text, cbbProjectName.SelectedValue.ToString());
+            }
+            
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = GetDataTableLayout1();
         }

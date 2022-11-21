@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 
 namespace ProjectManagement
@@ -71,7 +72,7 @@ namespace ProjectManagement
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        public void editUser(string id, string projectname, string startdate, string enddate, string startdate2, string enddate2, string manager_id)
+        public void editProject(string id, string projectname, string startdate, string enddate, string startdate2, string enddate2, string manager_id)
         {
             con.Open();
             string query = string.Format("update Projects set ProjectName = '{1}', StartDate = '{2}', EndDate = '{3}', StartDate2 = '{4}', EndDate = '{5}', manager_id = '{6}' where ID = '{0}'", id, projectname, startdate, enddate, startdate2, enddate2, manager_id);
@@ -81,11 +82,19 @@ namespace ProjectManagement
         }
         public void deleteUser(string id)
         {
-            con.Open();
-            string query = string.Format("delete from projects where ID = {0}", id);
-            MySqlCommand cmd = new MySqlCommand(query, con);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            try
+            {
+                con.Open();
+                string query = string.Format("delete from projects where ID = {0}", id);
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (SystemException ex)
+            {
+                MessageBox.Show("ProjectName still exist in Issues tab. Those projects need to be deleted or change manager in order to delete this row!");
+            }
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -106,7 +115,14 @@ namespace ProjectManagement
             string msqld2 = dtp2.Value.ToString("yyyy-MM-dd HH:mm:ss");
             string msqld3 = dtp3.Value.ToString("yyyy-MM-dd HH:mm:ss");
             string msqld4 = dtp4.Value.ToString("yyyy-MM-dd HH:mm:ss");
-            addProject(txtName.Text, msqld1, msqld2, msqld3, msqld4, cbbManagerId.SelectedValue.ToString());
+            if (txtName.Text == string.Empty)
+            {
+                MessageBox.Show("You need to insert all the values!");
+
+            }
+            else
+                addProject(txtName.Text, msqld1, msqld2, msqld3, msqld4, cbbManagerId.SelectedValue.ToString());
+
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = GetDataTableLayout();
             txtName.Text = string.Empty;
@@ -131,7 +147,21 @@ namespace ProjectManagement
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            editUser(dataGridView1.CurrentRow.Cells[0].Value.ToString(), txtName.Text, dtp1.Value.ToString("yyyy-MM-dd HH:mm:ss"), dtp2.Value.ToString("yyyy-MM-dd HH:mm:ss"), dtp3.Value.ToString("yyyy-MM-dd HH:mm:ss"), dtp4.Value.ToString("yyyy-MM-dd HH:mm:ss"), cbbManagerId.SelectedValue.ToString());
+            if (txtName.Text == string.Empty)
+            {
+                MessageBox.Show("This field must not be empty!");
+            }
+            else
+            {
+                if (dataGridView1.CurrentRow.Cells[1].Value.ToString() == txtName.Text && DateTime.Parse(dataGridView1.CurrentRow.Cells[2].Value.ToString()) == dtp1.Value && DateTime.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString()) == dtp2.Value && DateTime.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString()) == dtp3.Value && DateTime.Parse(dataGridView1.CurrentRow.Cells[5].Value.ToString()) == dtp4.Value && dataGridView1.CurrentRow.Cells[6].Value.ToString() == cbbManagerId.Text)
+                {
+                    MessageBox.Show("The value changes need to be different from the previous values!");
+                }
+                else
+                    editProject(dataGridView1.CurrentRow.Cells[0].Value.ToString(), txtName.Text, dtp1.Value.ToString("yyyy-MM-dd HH:mm:ss"), dtp2.Value.ToString("yyyy-MM-dd HH:mm:ss"), dtp3.Value.ToString("yyyy-MM-dd HH:mm:ss"), dtp4.Value.ToString("yyyy-MM-dd HH:mm:ss"), cbbManagerId.SelectedValue.ToString());
+            }
+            
+            
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = GetDataTableLayout();
             txtName.Text = string.Empty;

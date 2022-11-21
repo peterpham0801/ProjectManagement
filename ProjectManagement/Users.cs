@@ -12,6 +12,7 @@ namespace ProjectManagement
     {
         MySqlConnection con = new MySqlConnection("server=127.0.0.1;user id=root;password = Studyinaussie123!;persistsecurityinfo=True;database=projectmanagement");
 
+ 
         public string UserName { get; set; }
         public string Password { get; set; }
         

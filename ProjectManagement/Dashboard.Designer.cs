@@ -81,7 +81,7 @@ namespace ProjectManagement
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(200, 72);
             this.btn3.TabIndex = 3;
-            this.btn3.Text = "Issue";
+            this.btn3.Text = "Issues";
             this.btn3.UseVisualStyleBackColor = false;
             this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 

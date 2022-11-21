@@ -116,6 +116,7 @@ namespace ProjectManagement
             this.txt4.Name = "txt4";
             this.txt4.Size = new System.Drawing.Size(209, 20);
             this.txt4.TabIndex = 22;
+            this.txt4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt4_KeyPress);
             // 
             // label4
             // 

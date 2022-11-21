@@ -19,7 +19,7 @@ namespace ProjectManagement
         {
             InitializeComponent();
         }
-       
+
         public DataTable GetDataTableLayout()
         {
             DataTable table = new DataTable();
@@ -46,7 +46,7 @@ namespace ProjectManagement
         private void frmUserManagement_Load_1(object sender, EventArgs e)
         {
             dataGridView1.DataSource = GetDataTableLayout();
-            
+
         }
         public void addUser(string fullname, string email, string phone, string username, string password, bool admin)
         {
@@ -66,11 +66,20 @@ namespace ProjectManagement
         }
         public void deleteUser(string id)
         {
-            con.Open();
-            string query = string.Format("delete from users where ID = {0}", id);
-            MySqlCommand cmd = new MySqlCommand(query, con);
-            cmd.ExecuteNonQuery();
-            con.Close();
+
+            try
+            {
+                con.Open();
+                string query = string.Format("delete from users where ID = {0}", id);
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (SystemException ex)
+            {
+                MessageBox.Show("FullName still exist in Projects tab. Those projects need to be deleted or change manager in order to delete this row!");
+            }
+
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -83,7 +92,16 @@ namespace ProjectManagement
             {
                 value = false;
             }
-            addUser(txt2.Text, txt3.Text,txt4.Text, txt5.Text, txt6.Text, value);
+
+            if (txt2.Text == string.Empty || txt3.Text == string.Empty || txt4.Text == string.Empty || txt5 == null || txt6.Text == string.Empty)
+            {
+                MessageBox.Show("You need to insert all the values!");
+
+            }
+            else
+                addUser(txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt6.Text, value);
+
+
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = GetDataTableLayout();
             txt2.Text = txt3.Text = txt4.Text = txt5.Text = txt6.Text = string.Empty;
@@ -92,7 +110,23 @@ namespace ProjectManagement
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            editUser(dataGridView1.CurrentRow.Cells[0].Value.ToString(), txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt6.Text, cb1.Checked);
+            if (txt2.Text == string.Empty || txt3.Text == string.Empty || txt4.Text == string.Empty || txt5.Text == null || txt6.Text == string.Empty)
+            {
+                MessageBox.Show("All fields must be filled");
+
+            }
+            else
+            {
+                if (dataGridView1.CurrentRow.Cells[1].Value.ToString() == txt2.Text && dataGridView1.CurrentRow.Cells[2].ToString() == txt3.Text &&
+                dataGridView1.CurrentRow.Cells[3].Value.ToString() == txt4.Text && dataGridView1.CurrentRow.Cells[4].Value.ToString() == txt5.Text &&
+                dataGridView1.CurrentRow.Cells[5].Value.ToString() == txt6.Text)
+                {
+                    MessageBox.Show("The value changes need to be different from the previous values!");
+                }
+                else
+                    editUser(dataGridView1.CurrentRow.Cells[0].Value.ToString(), txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt6.Text, cb1.Checked);
+            }
+
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = GetDataTableLayout();
             txt2.Text = txt3.Text = txt4.Text = txt5.Text = txt6.Text = string.Empty;
@@ -106,8 +140,8 @@ namespace ProjectManagement
             txt4.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             txt5.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
             txt6.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                                        
-            if(dataGridView1.CurrentRow.Cells[6].Value.ToString() == "True")
+
+            if (dataGridView1.CurrentRow.Cells[6].Value.ToString() == "True")
             {
                 cb1.Checked = true;
             }
@@ -121,6 +155,15 @@ namespace ProjectManagement
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = GetDataTableLayout();
             txt2.Text = txt3.Text = txt4.Text = txt5.Text = txt6.Text = string.Empty;
+        }
+
+        private void txt4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
         }
     }
 }
