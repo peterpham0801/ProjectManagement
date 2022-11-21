@@ -117,8 +117,8 @@ namespace ProjectManagement
             }
             else
             {
-                if (dataGridView1.CurrentRow.Cells[1].Value.ToString() == txt2.Text && dataGridView1.CurrentRow.Cells[2].ToString() == txt3.Text &&
-                dataGridView1.CurrentRow.Cells[3].Value.ToString() == txt4.Text && dataGridView1.CurrentRow.Cells[4].Value.ToString() == txt5.Text &&
+                if (dataGridView1.CurrentRow.Cells[1].Value.ToString() == txt2.Text || dataGridView1.CurrentRow.Cells[2].ToString() == txt3.Text ||
+                dataGridView1.CurrentRow.Cells[3].Value.ToString() == txt4.Text || dataGridView1.CurrentRow.Cells[4].Value.ToString() == txt5.Text ||
                 dataGridView1.CurrentRow.Cells[5].Value.ToString() == txt6.Text)
                 {
                     MessageBox.Show("The value changes need to be different from the previous values!");
