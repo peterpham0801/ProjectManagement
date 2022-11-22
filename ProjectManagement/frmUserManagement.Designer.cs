@@ -215,6 +215,7 @@ namespace ProjectManagement
             this.cb1.Size = new System.Drawing.Size(15, 14);
             this.cb1.TabIndex = 32;
             this.cb1.UseVisualStyleBackColor = true;
+            this.cb1.CheckedChanged += new System.EventHandler(this.cb1_CheckedChanged);
             // 
             // frmUserManagement
             // 

@@ -57,6 +57,10 @@ namespace ProjectManagement
 
             return table;
         }
+        public int CountDG()
+        {
+            return dataGridView1.RowCount;
+        }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
@@ -107,13 +111,13 @@ namespace ProjectManagement
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (txt1.Text == string.Empty || txt2.Text == string.Empty)
+            if (txt1.Text == string.Empty || txt2.Text == string.Empty || cbbProjectName.Text == string.Empty)
             {
                 MessageBox.Show("All fields must be filled!");
             }
             else
             {
-                if (dataGridView1.CurrentRow.Cells[1].Value.ToString() == txt1.Text && dataGridView1.CurrentRow.Cells[2].ToString() == txt2.Text &&
+                if (dataGridView1.CurrentRow.Cells[1].Value.ToString() == txt1.Text && dataGridView1.CurrentRow.Cells[2].Value.ToString() == txt2.Text &&
                 dataGridView1.CurrentRow.Cells[3].Value.ToString() == cbbProjectName.Text)
                 {
                     MessageBox.Show("The value changes need to be different from the previous values!");

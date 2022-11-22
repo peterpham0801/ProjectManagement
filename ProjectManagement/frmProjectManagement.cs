@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,6 +39,10 @@ namespace ProjectManagement
 
             return table;
         }
+        public int CountDG()
+        {
+            return dataGridView1.RowCount;
+        }
         public DataTable GetDataTableLayout1()
         {
             DataTable table = new DataTable();
@@ -60,6 +65,7 @@ namespace ProjectManagement
         private void frmProjectManagement_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = GetDataTableLayout();
+            int count  = dataGridView1.Rows.Count;
             cbbManagerId.DataSource = GetDataTableLayout1();
             cbbManagerId.DisplayMember = "FullName";
             cbbManagerId.ValueMember = "ID";
@@ -109,8 +115,6 @@ namespace ProjectManagement
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-      
-            
             string msqld1 = dtp1.Value.ToString("yyyy-MM-dd HH:mm:ss");
             string msqld2 = dtp2.Value.ToString("yyyy-MM-dd HH:mm:ss");
             string msqld3 = dtp3.Value.ToString("yyyy-MM-dd HH:mm:ss");

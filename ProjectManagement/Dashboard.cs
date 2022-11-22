@@ -69,12 +69,17 @@ namespace ProjectManagement
             frm.MdiParent = this;
             frm.Show();
             tlp1.Controls.Add(frm);
+            lblCat.Text = "Users: ";
+            con.Open();
 
-            //tlp1.Controls.Clear();
-            //frmProjectManagement frm = new frmProjectManagement();
-            //frm.MdiParent = this;
-            //frm.Show();
-            //tlp1.Controls.Add(frm);
+            lblCount.Text = frm.CountDG().ToString();
+
+            string query = string.Format("select count(ID) from Users");
+            MySqlCommand cmd = new MySqlCommand(query, con);
+
+            cmd.ExecuteNonQuery();
+            con.Close();
+
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -94,6 +99,11 @@ namespace ProjectManagement
             frm.MdiParent = this;
             frm.Show();
             tlp1.Controls.Add(frm);
+            lblCat.Text = "Projects: ";
+            con.Open();
+
+            lblCount.Text = frm.CountDG().ToString();
+            con.Close();
         }
 
         private void btn3_Click(object sender, EventArgs e)
@@ -103,6 +113,11 @@ namespace ProjectManagement
             frm.MdiParent = this;
             frm.Show();
             tlp1.Controls.Add(frm);
+            lblCat.Text = "Issues: ";
+            con.Open();
+
+            lblCount.Text = frm.CountDG().ToString();
+            con.Close();
         }
 
         private void lbl1_Click(object sender, EventArgs e)
@@ -116,6 +131,16 @@ namespace ProjectManagement
         }
 
         private void frmDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

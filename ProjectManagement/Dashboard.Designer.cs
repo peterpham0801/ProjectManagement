@@ -31,6 +31,8 @@ namespace ProjectManagement
         {
             this.lbl1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblCount = new System.Windows.Forms.Label();
+            this.lblCat = new System.Windows.Forms.Label();
             this.btn3 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
             this.btn1 = new System.Windows.Forms.Button();
@@ -61,12 +63,36 @@ namespace ProjectManagement
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel1.Controls.Add(this.lblCount);
+            this.panel1.Controls.Add(this.lblCat);
             this.panel1.Controls.Add(this.lbl1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1004, 36);
             this.panel1.TabIndex = 4;
+            // 
+            // lblCount
+            // 
+            this.lblCount.AutoSize = true;
+            this.lblCount.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCount.Location = new System.Drawing.Point(534, 9);
+            this.lblCount.Name = "lblCount";
+            this.lblCount.Size = new System.Drawing.Size(23, 19);
+            this.lblCount.TabIndex = 2;
+            this.lblCount.Text = "lbl";
+            this.lblCount.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // lblCat
+            // 
+            this.lblCat.AutoSize = true;
+            this.lblCat.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCat.Location = new System.Drawing.Point(470, 9);
+            this.lblCat.Name = "lblCat";
+            this.lblCat.Size = new System.Drawing.Size(23, 19);
+            this.lblCat.TabIndex = 1;
+            this.lblCat.Text = "lbl";
+            this.lblCat.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // btn3
             // 
@@ -187,5 +213,7 @@ namespace ProjectManagement
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Panel pnl2;
         private System.Windows.Forms.TableLayoutPanel tlp1;
+        private System.Windows.Forms.Label lblCount;
+        private System.Windows.Forms.Label lblCat;
     }
 }

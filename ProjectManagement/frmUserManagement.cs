@@ -14,7 +14,7 @@ namespace ProjectManagement
     public partial class frmUserManagement : Form
     {
         MySqlConnection con = new MySqlConnection("server=127.0.0.1;user id=root;password = Studyinaussie123!;persistsecurityinfo=True;database=projectmanagement");
-
+     
         public frmUserManagement()
         {
             InitializeComponent();
@@ -42,7 +42,10 @@ namespace ProjectManagement
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
         }
-
+        public int CountDG()
+        {
+            return dataGridView1.RowCount;
+        }
         private void frmUserManagement_Load_1(object sender, EventArgs e)
         {
             dataGridView1.DataSource = GetDataTableLayout();
@@ -99,8 +102,17 @@ namespace ProjectManagement
 
             }
             else
-                addUser(txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt6.Text, value);
-
+            {
+                if (dataGridView1.CurrentRow.Cells[4].Value.ToString() == txt5.Text)
+                {
+                    MessageBox.Show("The username already exists");
+                }
+                else
+                {
+                    addUser(txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt6.Text, value);
+                }
+            }
+                
 
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = GetDataTableLayout();
@@ -117,14 +129,23 @@ namespace ProjectManagement
             }
             else
             {
-                if (dataGridView1.CurrentRow.Cells[1].Value.ToString() == txt2.Text || dataGridView1.CurrentRow.Cells[2].ToString() == txt3.Text ||
-                dataGridView1.CurrentRow.Cells[3].Value.ToString() == txt4.Text || dataGridView1.CurrentRow.Cells[4].Value.ToString() == txt5.Text ||
-                dataGridView1.CurrentRow.Cells[5].Value.ToString() == txt6.Text)
+                if (dataGridView1.CurrentRow.Cells[1].Value.ToString() == txt2.Text && dataGridView1.CurrentRow.Cells[2].ToString() == txt3.Text &&
+                dataGridView1.CurrentRow.Cells[3].Value.ToString() == txt4.Text && dataGridView1.CurrentRow.Cells[4].Value.ToString() == txt5.Text &&
+                dataGridView1.CurrentRow.Cells[5].Value.ToString() == txt6.Text && dataGridView1.CurrentRow.Cells[6].Value.ToString() == cb1.Checked.ToString() )
                 {
                     MessageBox.Show("The value changes need to be different from the previous values!");
                 }
                 else
-                    editUser(dataGridView1.CurrentRow.Cells[0].Value.ToString(), txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt6.Text, cb1.Checked);
+                {
+                    if (dataGridView1.CurrentRow.Cells[4].Value.ToString() == txt5.Text)
+                    {
+                        MessageBox.Show("The username already exists");
+                    }
+                    else
+                    {
+                        editUser(dataGridView1.CurrentRow.Cells[0].Value.ToString(), txt2.Text, txt3.Text, txt4.Text, txt5.Text, txt6.Text, cb1.Checked);
+                    }
+                }
             }
 
             dataGridView1.DataSource = null;
@@ -163,6 +184,11 @@ namespace ProjectManagement
             {
                 e.Handled = true;
             }
+
+        }
+
+        private void cb1_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }
