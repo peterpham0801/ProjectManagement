@@ -30,7 +30,7 @@ namespace ProjectManagement
                 connection.Open();
                 // Select * is not a good thing, but in this cases is is very usefull to make the code dynamic/reusable 
                 // We get the tabel layout for our DataTable
-                string query = $"select projects.ID, projects.ProjectName, projects.StartDate, projects.EndDate, projects.StartDate2, projects.EndDate2, users.FullName\r\nfrom users\r\ninner join projects\r\non projects.manager_id = users.ID;";
+                string query = $"select projects.ID, projects.ProjectName, projects.StartDate, projects.ExpectedStartDate, projects.EndDate, projects.ExpectedEndDate, users.FullName\r\nfrom users\r\ninner join projects\r\non projects.manager_id = users.ID;";
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection))
                 {
                     adapter.Fill(table);
@@ -70,21 +70,35 @@ namespace ProjectManagement
             cbbManagerId.DisplayMember = "FullName";
             cbbManagerId.ValueMember = "ID";
         }
-        public void addProject(string projectname, string startdate, string enddate, string startdate2, string enddate2, string manager_id)
+        public void addProject(string projectname, string startdate, string startdate2, string enddate, string enddate2, string manager_id)
         {
-            con.Open();  
-            string query = string.Format("insert into Projects(ProjectName, StartDate, EndDate, StartDate2, EndDate2, manager_id) values ('{0}','{1}','{2}','{3}','{4}','{5}')", projectname, startdate, enddate, startdate2, enddate2, manager_id);
-            MySqlCommand cmd = new MySqlCommand(query, con);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            try
+            {
+                con.Open();
+                string query = string.Format("insert into Projects(ProjectName, StartDate, ExpectedStartDate, EndDate, ExpectedEndDate, manager_id) values ('{0}','{1}','{2}','{3}','{4}','{5}')", projectname, startdate, startdate2, enddate, enddate2, manager_id);
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch
+            {
+                MessageBox.Show("The project already exists!");
+            }
         }
-        public void editProject(string id, string projectname, string startdate, string enddate, string startdate2, string enddate2, string manager_id)
+        public void editProject(string id, string projectname, string startdate, string startdate2, string enddate,  string enddate2, string manager_id)
         {
-            con.Open();
-            string query = string.Format("update Projects set ProjectName = '{1}', StartDate = '{2}', EndDate = '{3}', StartDate2 = '{4}', EndDate = '{5}', manager_id = '{6}' where ID = '{0}'", id, projectname, startdate, enddate, startdate2, enddate2, manager_id);
-            MySqlCommand cmd = new MySqlCommand(query, con);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            try
+            {
+                con.Open();
+                string query = string.Format("update Projects set ProjectName = '{1}', StartDate = '{2}', ExpectedStartDate = '{3}', EndDate = '{4}', ExpectedEndDate = '{5}', manager_id = '{6}' where ID = '{0}'", id, projectname, startdate, startdate2, enddate, enddate2, manager_id);
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch
+            {
+                MessageBox.Show("The project already exists!");
+            }
         }
         public void deleteUser(string id)
         {
@@ -180,6 +194,16 @@ namespace ProjectManagement
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtp2_ValueChanged(object sender, EventArgs e)
         {
 
         }

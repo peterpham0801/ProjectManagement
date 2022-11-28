@@ -31,7 +31,6 @@ namespace ProjectManagement
         {
             this.lbl1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblCount = new System.Windows.Forms.Label();
             this.lblCat = new System.Windows.Forms.Label();
             this.btn3 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
@@ -53,9 +52,9 @@ namespace ProjectManagement
             this.lbl1.Location = new System.Drawing.Point(3, 6);
             this.lbl1.Margin = new System.Windows.Forms.Padding(3);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(172, 21);
+            this.lbl1.Size = new System.Drawing.Size(202, 21);
             this.lbl1.TabIndex = 0;
-            this.lbl1.Text = "Project Management";
+            this.lbl1.Text = "PROJECT MANAGEMENT";
             this.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl1.Click += new System.EventHandler(this.lbl1_Click);
             // 
@@ -63,7 +62,6 @@ namespace ProjectManagement
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel1.Controls.Add(this.lblCount);
             this.panel1.Controls.Add(this.lblCat);
             this.panel1.Controls.Add(this.lbl1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -72,22 +70,11 @@ namespace ProjectManagement
             this.panel1.Size = new System.Drawing.Size(1004, 36);
             this.panel1.TabIndex = 4;
             // 
-            // lblCount
-            // 
-            this.lblCount.AutoSize = true;
-            this.lblCount.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCount.Location = new System.Drawing.Point(534, 9);
-            this.lblCount.Name = "lblCount";
-            this.lblCount.Size = new System.Drawing.Size(23, 19);
-            this.lblCount.TabIndex = 2;
-            this.lblCount.Text = "lbl";
-            this.lblCount.Click += new System.EventHandler(this.label2_Click);
-            // 
             // lblCat
             // 
             this.lblCat.AutoSize = true;
             this.lblCat.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCat.Location = new System.Drawing.Point(470, 9);
+            this.lblCat.Location = new System.Drawing.Point(479, 8);
             this.lblCat.Name = "lblCat";
             this.lblCat.Size = new System.Drawing.Size(23, 19);
             this.lblCat.TabIndex = 1;
@@ -191,9 +178,12 @@ namespace ProjectManagement
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.Coral;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
+            this.MaximizeBox = false;
             this.Name = "frmDashboard";
-            this.Text = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Project Management";
             this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -213,7 +203,6 @@ namespace ProjectManagement
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Panel pnl2;
         private System.Windows.Forms.TableLayoutPanel tlp1;
-        private System.Windows.Forms.Label lblCount;
         private System.Windows.Forms.Label lblCat;
     }
 }

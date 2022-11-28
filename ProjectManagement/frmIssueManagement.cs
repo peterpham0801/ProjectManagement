@@ -99,6 +99,7 @@ namespace ProjectManagement
             
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = GetDataTableLayout1();
+            txt1.Text = txt2.Text = string.Empty;
         }
         public void editIssue(string id, string name, string description, string project_id)
         {
@@ -128,6 +129,7 @@ namespace ProjectManagement
             
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = GetDataTableLayout1();
+            txt1.Text = txt2.Text = string.Empty;
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)

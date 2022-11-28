@@ -53,10 +53,10 @@ namespace ProjectManagement
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 11);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(533, 426);
+            this.dataGridView1.Size = new System.Drawing.Size(533, 427);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -67,9 +67,9 @@ namespace ProjectManagement
             this.btnDelete.BackColor = System.Drawing.Color.Red;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(551, 364);
+            this.btnDelete.Location = new System.Drawing.Point(560, 376);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(200, 45);
+            this.btnDelete.Size = new System.Drawing.Size(209, 48);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -80,9 +80,9 @@ namespace ProjectManagement
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(551, 313);
+            this.btnEdit.Location = new System.Drawing.Point(560, 322);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(200, 45);
+            this.btnEdit.Size = new System.Drawing.Size(209, 48);
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -93,9 +93,9 @@ namespace ProjectManagement
             this.btnAdd.BackColor = System.Drawing.Color.ForestGreen;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(551, 262);
+            this.btnAdd.Location = new System.Drawing.Point(560, 268);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(200, 45);
+            this.btnAdd.Size = new System.Drawing.Size(209, 48);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -104,7 +104,7 @@ namespace ProjectManagement
             // lbl2
             // 
             this.lbl2.AutoSize = true;
-            this.lbl2.Location = new System.Drawing.Point(551, 11);
+            this.lbl2.Location = new System.Drawing.Point(560, 11);
             this.lbl2.Name = "lbl2";
             this.lbl2.Size = new System.Drawing.Size(68, 13);
             this.lbl2.TabIndex = 7;
@@ -112,7 +112,7 @@ namespace ProjectManagement
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(551, 27);
+            this.txtName.Location = new System.Drawing.Point(560, 27);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(209, 20);
             this.txtName.TabIndex = 6;
@@ -120,7 +120,7 @@ namespace ProjectManagement
             // lbl3
             // 
             this.lbl3.AutoSize = true;
-            this.lbl3.Location = new System.Drawing.Point(551, 50);
+            this.lbl3.Location = new System.Drawing.Point(560, 50);
             this.lbl3.Name = "lbl3";
             this.lbl3.Size = new System.Drawing.Size(52, 13);
             this.lbl3.TabIndex = 11;
@@ -129,25 +129,26 @@ namespace ProjectManagement
             // lbl4
             // 
             this.lbl4.AutoSize = true;
-            this.lbl4.Location = new System.Drawing.Point(551, 89);
+            this.lbl4.Location = new System.Drawing.Point(560, 128);
             this.lbl4.Name = "lbl4";
             this.lbl4.Size = new System.Drawing.Size(49, 13);
             this.lbl4.TabIndex = 9;
             this.lbl4.Text = "EndDate";
+            this.lbl4.Click += new System.EventHandler(this.lbl4_Click);
             // 
             // lbl5
             // 
             this.lbl5.AutoSize = true;
-            this.lbl5.Location = new System.Drawing.Point(551, 132);
+            this.lbl5.Location = new System.Drawing.Point(560, 89);
             this.lbl5.Name = "lbl5";
-            this.lbl5.Size = new System.Drawing.Size(58, 13);
+            this.lbl5.Size = new System.Drawing.Size(97, 13);
             this.lbl5.TabIndex = 15;
-            this.lbl5.Text = "StartDate2";
+            this.lbl5.Text = "ExpectedStartDate";
             // 
             // lbl6
             // 
             this.lbl6.AutoSize = true;
-            this.lbl6.Location = new System.Drawing.Point(551, 171);
+            this.lbl6.Location = new System.Drawing.Point(560, 167);
             this.lbl6.Name = "lbl6";
             this.lbl6.Size = new System.Drawing.Size(55, 13);
             this.lbl6.TabIndex = 13;
@@ -155,36 +156,37 @@ namespace ProjectManagement
             // 
             // dtp1
             // 
-            this.dtp1.Location = new System.Drawing.Point(551, 66);
+            this.dtp1.Location = new System.Drawing.Point(560, 66);
             this.dtp1.Name = "dtp1";
-            this.dtp1.Size = new System.Drawing.Size(200, 20);
+            this.dtp1.Size = new System.Drawing.Size(209, 20);
             this.dtp1.TabIndex = 16;
             // 
             // dtp2
             // 
-            this.dtp2.Location = new System.Drawing.Point(551, 109);
+            this.dtp2.Location = new System.Drawing.Point(560, 105);
             this.dtp2.Name = "dtp2";
-            this.dtp2.Size = new System.Drawing.Size(200, 20);
+            this.dtp2.Size = new System.Drawing.Size(209, 20);
             this.dtp2.TabIndex = 17;
+            this.dtp2.ValueChanged += new System.EventHandler(this.dtp2_ValueChanged);
             // 
             // dtp3
             // 
-            this.dtp3.Location = new System.Drawing.Point(551, 148);
+            this.dtp3.Location = new System.Drawing.Point(560, 144);
             this.dtp3.Name = "dtp3";
-            this.dtp3.Size = new System.Drawing.Size(200, 20);
+            this.dtp3.Size = new System.Drawing.Size(209, 20);
             this.dtp3.TabIndex = 18;
             // 
             // dtp4
             // 
-            this.dtp4.Location = new System.Drawing.Point(551, 187);
+            this.dtp4.Location = new System.Drawing.Point(560, 183);
             this.dtp4.Name = "dtp4";
-            this.dtp4.Size = new System.Drawing.Size(200, 20);
+            this.dtp4.Size = new System.Drawing.Size(209, 20);
             this.dtp4.TabIndex = 19;
             // 
             // lbl7
             // 
             this.lbl7.AutoSize = true;
-            this.lbl7.Location = new System.Drawing.Point(551, 207);
+            this.lbl7.Location = new System.Drawing.Point(560, 205);
             this.lbl7.Name = "lbl7";
             this.lbl7.Size = new System.Drawing.Size(52, 13);
             this.lbl7.TabIndex = 21;
@@ -193,9 +195,9 @@ namespace ProjectManagement
             // cbbManagerId
             // 
             this.cbbManagerId.FormattingEnabled = true;
-            this.cbbManagerId.Location = new System.Drawing.Point(554, 221);
+            this.cbbManagerId.Location = new System.Drawing.Point(560, 221);
             this.cbbManagerId.Name = "cbbManagerId";
-            this.cbbManagerId.Size = new System.Drawing.Size(197, 21);
+            this.cbbManagerId.Size = new System.Drawing.Size(209, 21);
             this.cbbManagerId.TabIndex = 23;
             this.cbbManagerId.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 

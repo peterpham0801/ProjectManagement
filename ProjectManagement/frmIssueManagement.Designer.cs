@@ -45,7 +45,7 @@ namespace ProjectManagement
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(551, 50);
+            this.lblDescription.Location = new System.Drawing.Point(559, 51);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(85, 13);
             this.lblDescription.TabIndex = 35;
@@ -53,15 +53,15 @@ namespace ProjectManagement
             // 
             // txt2
             // 
-            this.txt2.Location = new System.Drawing.Point(551, 66);
+            this.txt2.Location = new System.Drawing.Point(559, 67);
             this.txt2.Name = "txt2";
-            this.txt2.Size = new System.Drawing.Size(209, 20);
+            this.txt2.Size = new System.Drawing.Size(210, 20);
             this.txt2.TabIndex = 32;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(551, 11);
+            this.lblName.Location = new System.Drawing.Point(559, 12);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(60, 13);
             this.lblName.TabIndex = 31;
@@ -69,9 +69,9 @@ namespace ProjectManagement
             // 
             // txt1
             // 
-            this.txt1.Location = new System.Drawing.Point(551, 27);
+            this.txt1.Location = new System.Drawing.Point(559, 28);
             this.txt1.Name = "txt1";
-            this.txt1.Size = new System.Drawing.Size(209, 20);
+            this.txt1.Size = new System.Drawing.Size(210, 20);
             this.txt1.TabIndex = 30;
             // 
             // btnAdd
@@ -80,9 +80,9 @@ namespace ProjectManagement
             this.btnAdd.BackColor = System.Drawing.Color.ForestGreen;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(571, 159);
+            this.btnAdd.Location = new System.Drawing.Point(560, 268);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(168, 56);
+            this.btnAdd.Size = new System.Drawing.Size(209, 48);
             this.btnAdd.TabIndex = 42;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -93,9 +93,9 @@ namespace ProjectManagement
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(571, 221);
+            this.btnEdit.Location = new System.Drawing.Point(560, 322);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(168, 56);
+            this.btnEdit.Size = new System.Drawing.Size(209, 48);
             this.btnEdit.TabIndex = 41;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -106,9 +106,9 @@ namespace ProjectManagement
             this.btnDelete.BackColor = System.Drawing.Color.Red;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(571, 283);
+            this.btnDelete.Location = new System.Drawing.Point(560, 376);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(168, 56);
+            this.btnDelete.Size = new System.Drawing.Size(209, 48);
             this.btnDelete.TabIndex = 40;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -123,14 +123,14 @@ namespace ProjectManagement
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(533, 349);
+            this.dataGridView1.Size = new System.Drawing.Size(533, 426);
             this.dataGridView1.TabIndex = 43;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click_1);
             // 
             // lblProject
             // 
             this.lblProject.AutoSize = true;
-            this.lblProject.Location = new System.Drawing.Point(551, 89);
+            this.lblProject.Location = new System.Drawing.Point(559, 90);
             this.lblProject.Name = "lblProject";
             this.lblProject.Size = new System.Drawing.Size(40, 13);
             this.lblProject.TabIndex = 44;
@@ -139,9 +139,9 @@ namespace ProjectManagement
             // cbbProjectName
             // 
             this.cbbProjectName.FormattingEnabled = true;
-            this.cbbProjectName.Location = new System.Drawing.Point(552, 106);
+            this.cbbProjectName.Location = new System.Drawing.Point(560, 107);
             this.cbbProjectName.Name = "cbbProjectName";
-            this.cbbProjectName.Size = new System.Drawing.Size(208, 21);
+            this.cbbProjectName.Size = new System.Drawing.Size(209, 21);
             this.cbbProjectName.TabIndex = 45;
             // 
             // frmIssueManagement

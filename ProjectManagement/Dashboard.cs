@@ -69,10 +69,10 @@ namespace ProjectManagement
             frm.MdiParent = this;
             frm.Show();
             tlp1.Controls.Add(frm);
-            lblCat.Text = "Users: ";
+            
             con.Open();
 
-            lblCount.Text = frm.CountDG().ToString();
+            lblCat.Text = string.Format("USERS: {0}", frm.CountDG().ToString());
 
             string query = string.Format("select count(ID) from Users");
             MySqlCommand cmd = new MySqlCommand(query, con);
@@ -99,10 +99,10 @@ namespace ProjectManagement
             frm.MdiParent = this;
             frm.Show();
             tlp1.Controls.Add(frm);
-            lblCat.Text = "Projects: ";
+          
             con.Open();
 
-            lblCount.Text = frm.CountDG().ToString();
+            lblCat.Text = string.Format("PROJECTS: {0}", frm.CountDG().ToString());
             con.Close();
         }
 
@@ -113,10 +113,10 @@ namespace ProjectManagement
             frm.MdiParent = this;
             frm.Show();
             tlp1.Controls.Add(frm);
-            lblCat.Text = "Issues: ";
+
             con.Open();
 
-            lblCount.Text = frm.CountDG().ToString();
+            lblCat.Text = string.Format("ISSUES: {0}", frm.CountDG().ToString());
             con.Close();
         }
 
@@ -132,7 +132,21 @@ namespace ProjectManagement
 
         private void frmDashboard_Load(object sender, EventArgs e)
         {
+            tlp1.Controls.Clear();
+            frmUserManagement frm = new frmUserManagement();
+            frm.MdiParent = this;
+            frm.Show();
+            tlp1.Controls.Add(frm);
+            
+            con.Open();
 
+            lblCat.Text = string.Format("USERS: {0}", frm.CountDG().ToString());
+
+            string query = string.Format("select count(ID) from Users");
+            MySqlCommand cmd = new MySqlCommand(query, con);
+
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         private void label1_Click_1(object sender, EventArgs e)
