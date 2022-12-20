@@ -29,6 +29,7 @@ namespace ProjectManagement
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbl1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblCat = new System.Windows.Forms.Label();
@@ -38,6 +39,7 @@ namespace ProjectManagement
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnl2 = new System.Windows.Forms.Panel();
             this.tlp1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ttNoAdmin = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnl2.SuspendLayout();
@@ -56,7 +58,6 @@ namespace ProjectManagement
             this.lbl1.TabIndex = 0;
             this.lbl1.Text = "PROJECT MANAGEMENT";
             this.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl1.Click += new System.EventHandler(this.lbl1_Click);
             // 
             // panel1
             // 
@@ -79,7 +80,6 @@ namespace ProjectManagement
             this.lblCat.Size = new System.Drawing.Size(23, 19);
             this.lblCat.TabIndex = 1;
             this.lblCat.Text = "lbl";
-            this.lblCat.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // btn3
             // 
@@ -169,6 +169,14 @@ namespace ProjectManagement
             this.tlp1.Size = new System.Drawing.Size(807, 450);
             this.tlp1.TabIndex = 0;
             // 
+            // ttNoAdmin
+            // 
+            this.ttNoAdmin.AutoPopDelay = 10000;
+            this.ttNoAdmin.InitialDelay = 500;
+            this.ttNoAdmin.IsBalloon = true;
+            this.ttNoAdmin.ReshowDelay = 100;
+            this.ttNoAdmin.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,8 +190,9 @@ namespace ProjectManagement
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.Name = "frmDashboard";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Project Management";
+            this.Text = "PROJECT MANAGEMENT";
             this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -204,5 +213,6 @@ namespace ProjectManagement
         private System.Windows.Forms.Panel pnl2;
         private System.Windows.Forms.TableLayoutPanel tlp1;
         private System.Windows.Forms.Label lblCat;
+        private System.Windows.Forms.ToolTip ttNoAdmin;
     }
 }

@@ -13,15 +13,34 @@ namespace ProjectManagement
 {
     public partial class frmDashboard : Form
     {
-        MySqlConnection con = new MySqlConnection("server=127.0.0.1;user id=root;password = Studyinaussie123!;persistsecurityinfo=True;database=projectmanagement");
+        bool NotAdmin = false;
+        MySqlConnection con = new MySqlConnection("server=127.0.0.1;user id=root;password=Studyinaussie123!;persistsecurityinfo=True;database=projectmanagement");
         public frmDashboard()
         {
             InitializeComponent();
+            
         }
+        void Connect()
+        {
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+        }
+        void Disconnect()
+        {
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
+            }
+        }
+
         public frmDashboard(string a)
         {
             InitializeComponent();
-            btn1.Enabled = false;
+            frmUserManagement frm = new frmUserManagement();
+            NotAdmin = true;
+            ttNoAdmin.SetToolTip(btn1, "You need to be the admin to access this tab");
         }
         public DataTable GetDataTableLayout()
         {
@@ -41,55 +60,24 @@ namespace ProjectManagement
 
             return table;
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tlp1.Controls.Clear();
-            frmUserManagement frm = new frmUserManagement();
-            frm.MdiParent = this;
-            frm.Show();
-            tlp1.Controls.Add(frm);
-            
-            con.Open();
-
-            lblCat.Text = string.Format("USERS: {0}", frm.CountDG().ToString());
-
-            string query = string.Format("select count(ID) from Users");
-            MySqlCommand cmd = new MySqlCommand(query, con);
-
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
+            if (NotAdmin) { }
+            else
+            {
+                tlp1.Controls.Clear();
+                frmUserManagement frm = new frmUserManagement();
+                frm.MdiParent = this;
+                frm.Show();
+                tlp1.Controls.Add(frm);
+                Connect();
+                lblCat.Text = string.Format("USERS: {0}", frm.CountDG().ToString());
+                string query = string.Format("select count(ID) from Users");
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                Disconnect();
+            }
         }
 
         private void btn2_Click(object sender, EventArgs e)
@@ -99,11 +87,7 @@ namespace ProjectManagement
             frm.MdiParent = this;
             frm.Show();
             tlp1.Controls.Add(frm);
-          
-            con.Open();
-
             lblCat.Text = string.Format("PROJECTS: {0}", frm.CountDG().ToString());
-            con.Close();
         }
 
         private void btn3_Click(object sender, EventArgs e)
@@ -113,50 +97,18 @@ namespace ProjectManagement
             frm.MdiParent = this;
             frm.Show();
             tlp1.Controls.Add(frm);
-
-            con.Open();
-
             lblCat.Text = string.Format("ISSUES: {0}", frm.CountDG().ToString());
-            con.Close();
-        }
-
-        private void lbl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
 
         }
 
         private void frmDashboard_Load(object sender, EventArgs e)
         {
             tlp1.Controls.Clear();
-            frmUserManagement frm = new frmUserManagement();
+            frmProjectManagement frm = new frmProjectManagement();
             frm.MdiParent = this;
             frm.Show();
             tlp1.Controls.Add(frm);
-            
-            con.Open();
-
-            lblCat.Text = string.Format("USERS: {0}", frm.CountDG().ToString());
-
-            string query = string.Format("select count(ID) from Users");
-            MySqlCommand cmd = new MySqlCommand(query, con);
-
-            cmd.ExecuteNonQuery();
-            con.Close();
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            lblCat.Text = string.Format("PROJECTS: {0}", frm.CountDG().ToString());
         }
     }
 }

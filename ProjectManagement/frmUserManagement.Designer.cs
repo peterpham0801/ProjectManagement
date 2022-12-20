@@ -29,6 +29,7 @@ namespace ProjectManagement
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.txt6 = new System.Windows.Forms.TextBox();
@@ -45,6 +46,12 @@ namespace ProjectManagement
             this.txt3 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txt2 = new System.Windows.Forms.TextBox();
+            this.lblAsterisk1 = new System.Windows.Forms.Label();
+            this.lblAsterisk2 = new System.Windows.Forms.Label();
+            this.lblAsterisk3 = new System.Windows.Forms.Label();
+            this.lblAsterisk4 = new System.Windows.Forms.Label();
+            this.lblAsterisk5 = new System.Windows.Forms.Label();
+            this.ttUsername = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,8 +66,6 @@ namespace ProjectManagement
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(533, 426);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // label3
@@ -119,6 +124,7 @@ namespace ProjectManagement
             this.txt4.Name = "txt4";
             this.txt4.Size = new System.Drawing.Size(209, 20);
             this.txt4.TabIndex = 18;
+            this.txt4.Leave += new System.EventHandler(this.txt4_Leave);
             // 
             // btnAdd
             // 
@@ -181,7 +187,6 @@ namespace ProjectManagement
             this.cb1.Size = new System.Drawing.Size(15, 14);
             this.cb1.TabIndex = 32;
             this.cb1.UseVisualStyleBackColor = true;
-            this.cb1.CheckedChanged += new System.EventHandler(this.cb1_CheckedChanged);
             // 
             // label5
             // 
@@ -220,14 +225,82 @@ namespace ProjectManagement
             this.txt2.Size = new System.Drawing.Size(209, 20);
             this.txt2.TabIndex = 33;
             this.txt2.Leave += new System.EventHandler(this.txt2_Leave);
-            this.txt2.Validating += new System.ComponentModel.CancelEventHandler(this.txt2_Validating);
+            // 
+            // lblAsterisk1
+            // 
+            this.lblAsterisk1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk1.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk1.Location = new System.Drawing.Point(775, 28);
+            this.lblAsterisk1.Name = "lblAsterisk1";
+            this.lblAsterisk1.Size = new System.Drawing.Size(18, 20);
+            this.lblAsterisk1.TabIndex = 37;
+            this.lblAsterisk1.Text = "*";
+            this.lblAsterisk1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAsterisk1.Visible = false;
+            // 
+            // lblAsterisk2
+            // 
+            this.lblAsterisk2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk2.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk2.Location = new System.Drawing.Point(775, 68);
+            this.lblAsterisk2.Name = "lblAsterisk2";
+            this.lblAsterisk2.Size = new System.Drawing.Size(18, 20);
+            this.lblAsterisk2.TabIndex = 38;
+            this.lblAsterisk2.Text = "*";
+            this.lblAsterisk2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAsterisk2.Visible = false;
+            // 
+            // lblAsterisk3
+            // 
+            this.lblAsterisk3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk3.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk3.Location = new System.Drawing.Point(775, 107);
+            this.lblAsterisk3.Name = "lblAsterisk3";
+            this.lblAsterisk3.Size = new System.Drawing.Size(18, 20);
+            this.lblAsterisk3.TabIndex = 39;
+            this.lblAsterisk3.Text = "*";
+            this.lblAsterisk3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAsterisk3.Visible = false;
+            // 
+            // lblAsterisk4
+            // 
+            this.lblAsterisk4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk4.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk4.Location = new System.Drawing.Point(775, 146);
+            this.lblAsterisk4.Name = "lblAsterisk4";
+            this.lblAsterisk4.Size = new System.Drawing.Size(18, 20);
+            this.lblAsterisk4.TabIndex = 40;
+            this.lblAsterisk4.Text = "*";
+            this.lblAsterisk4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAsterisk4.Visible = false;
+            // 
+            // lblAsterisk5
+            // 
+            this.lblAsterisk5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk5.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk5.Location = new System.Drawing.Point(775, 185);
+            this.lblAsterisk5.Name = "lblAsterisk5";
+            this.lblAsterisk5.Size = new System.Drawing.Size(18, 20);
+            this.lblAsterisk5.TabIndex = 41;
+            this.lblAsterisk5.Text = "*";
+            this.lblAsterisk5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAsterisk5.Visible = false;
+            // 
+            // ttUsername
+            // 
+            this.ttUsername.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Error;
             // 
             // frmUserManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(794, 552);
+            this.ClientSize = new System.Drawing.Size(794, 450);
+            this.Controls.Add(this.lblAsterisk5);
+            this.Controls.Add(this.lblAsterisk4);
+            this.Controls.Add(this.lblAsterisk3);
+            this.Controls.Add(this.lblAsterisk2);
+            this.Controls.Add(this.lblAsterisk1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt3);
             this.Controls.Add(this.label6);
@@ -272,5 +345,11 @@ namespace ProjectManagement
         private System.Windows.Forms.TextBox txt3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt2;
+        private System.Windows.Forms.Label lblAsterisk1;
+        private System.Windows.Forms.Label lblAsterisk2;
+        private System.Windows.Forms.Label lblAsterisk3;
+        private System.Windows.Forms.Label lblAsterisk4;
+        private System.Windows.Forms.Label lblAsterisk5;
+        private System.Windows.Forms.ToolTip ttUsername;
     }
 }

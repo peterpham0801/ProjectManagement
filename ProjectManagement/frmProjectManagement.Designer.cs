@@ -29,6 +29,7 @@ namespace ProjectManagement
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -45,6 +46,13 @@ namespace ProjectManagement
             this.dtp4 = new System.Windows.Forms.DateTimePicker();
             this.lbl7 = new System.Windows.Forms.Label();
             this.cbbManagerId = new System.Windows.Forms.ComboBox();
+            this.lblAsterisk1 = new System.Windows.Forms.Label();
+            this.lblAsterisk2 = new System.Windows.Forms.Label();
+            this.lblAsterisk6 = new System.Windows.Forms.Label();
+            this.lblAsterisk5 = new System.Windows.Forms.Label();
+            this.lblAsterisk4 = new System.Windows.Forms.Label();
+            this.lblAsterisk3 = new System.Windows.Forms.Label();
+            this.ttWarning = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,8 +66,6 @@ namespace ProjectManagement
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(533, 427);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // btnDelete
@@ -134,7 +140,6 @@ namespace ProjectManagement
             this.lbl4.Size = new System.Drawing.Size(49, 13);
             this.lbl4.TabIndex = 9;
             this.lbl4.Text = "EndDate";
-            this.lbl4.Click += new System.EventHandler(this.lbl4_Click);
             // 
             // lbl5
             // 
@@ -167,7 +172,6 @@ namespace ProjectManagement
             this.dtp2.Name = "dtp2";
             this.dtp2.Size = new System.Drawing.Size(209, 20);
             this.dtp2.TabIndex = 17;
-            this.dtp2.ValueChanged += new System.EventHandler(this.dtp2_ValueChanged);
             // 
             // dtp3
             // 
@@ -199,7 +203,78 @@ namespace ProjectManagement
             this.cbbManagerId.Name = "cbbManagerId";
             this.cbbManagerId.Size = new System.Drawing.Size(209, 21);
             this.cbbManagerId.TabIndex = 23;
-            this.cbbManagerId.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // lblAsterisk1
+            // 
+            this.lblAsterisk1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk1.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk1.Location = new System.Drawing.Point(775, 27);
+            this.lblAsterisk1.Name = "lblAsterisk1";
+            this.lblAsterisk1.Size = new System.Drawing.Size(18, 20);
+            this.lblAsterisk1.TabIndex = 38;
+            this.lblAsterisk1.Text = "*";
+            this.lblAsterisk1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAsterisk1.Visible = false;
+            // 
+            // lblAsterisk2
+            // 
+            this.lblAsterisk2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk2.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk2.Location = new System.Drawing.Point(775, 66);
+            this.lblAsterisk2.Name = "lblAsterisk2";
+            this.lblAsterisk2.Size = new System.Drawing.Size(18, 20);
+            this.lblAsterisk2.TabIndex = 39;
+            this.lblAsterisk2.Text = "*";
+            this.lblAsterisk2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAsterisk2.Visible = false;
+            // 
+            // lblAsterisk6
+            // 
+            this.lblAsterisk6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk6.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk6.Location = new System.Drawing.Point(775, 222);
+            this.lblAsterisk6.Name = "lblAsterisk6";
+            this.lblAsterisk6.Size = new System.Drawing.Size(18, 20);
+            this.lblAsterisk6.TabIndex = 45;
+            this.lblAsterisk6.Text = "*";
+            this.lblAsterisk6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAsterisk6.Visible = false;
+            // 
+            // lblAsterisk5
+            // 
+            this.lblAsterisk5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk5.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk5.Location = new System.Drawing.Point(775, 183);
+            this.lblAsterisk5.Name = "lblAsterisk5";
+            this.lblAsterisk5.Size = new System.Drawing.Size(18, 20);
+            this.lblAsterisk5.TabIndex = 44;
+            this.lblAsterisk5.Text = "*";
+            this.lblAsterisk5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAsterisk5.Visible = false;
+            // 
+            // lblAsterisk4
+            // 
+            this.lblAsterisk4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk4.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk4.Location = new System.Drawing.Point(775, 144);
+            this.lblAsterisk4.Name = "lblAsterisk4";
+            this.lblAsterisk4.Size = new System.Drawing.Size(18, 20);
+            this.lblAsterisk4.TabIndex = 43;
+            this.lblAsterisk4.Text = "*";
+            this.lblAsterisk4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAsterisk4.Visible = false;
+            // 
+            // lblAsterisk3
+            // 
+            this.lblAsterisk3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk3.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk3.Location = new System.Drawing.Point(775, 105);
+            this.lblAsterisk3.Name = "lblAsterisk3";
+            this.lblAsterisk3.Size = new System.Drawing.Size(18, 20);
+            this.lblAsterisk3.TabIndex = 42;
+            this.lblAsterisk3.Text = "*";
+            this.lblAsterisk3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAsterisk3.Visible = false;
             // 
             // frmProjectManagement
             // 
@@ -208,6 +283,12 @@ namespace ProjectManagement
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblAsterisk6);
+            this.Controls.Add(this.lblAsterisk5);
+            this.Controls.Add(this.lblAsterisk4);
+            this.Controls.Add(this.lblAsterisk3);
+            this.Controls.Add(this.lblAsterisk2);
+            this.Controls.Add(this.lblAsterisk1);
             this.Controls.Add(this.cbbManagerId);
             this.Controls.Add(this.lbl7);
             this.Controls.Add(this.dtp4);
@@ -252,5 +333,12 @@ namespace ProjectManagement
         private System.Windows.Forms.DateTimePicker dtp4;
         private System.Windows.Forms.Label lbl7;
         private System.Windows.Forms.ComboBox cbbManagerId;
+        private System.Windows.Forms.Label lblAsterisk1;
+        private System.Windows.Forms.Label lblAsterisk2;
+        private System.Windows.Forms.Label lblAsterisk6;
+        private System.Windows.Forms.Label lblAsterisk5;
+        private System.Windows.Forms.Label lblAsterisk4;
+        private System.Windows.Forms.Label lblAsterisk3;
+        private System.Windows.Forms.ToolTip ttWarning;
     }
 }
