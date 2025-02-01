@@ -1,1 +1,2 @@
 # ProjectManagement
+A simple Project Management program that utlilise DOTNET and MySQL database. I have intergrated a program with login window and able to present the database on the platform itself. The database can be edited from the window with basic alteration like add, delete or edit the database itself. Once finished, it will be changed in the database and represented on the user window again. 
